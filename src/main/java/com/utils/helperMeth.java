@@ -10,6 +10,11 @@ import org.junit.Before;
 
 public class helperMeth {
 
+    ReadConfig readconfig=new ReadConfig();
+    public String baseURL=readconfig.getApplicationURL();
+    public String username=readconfig.getUsername();
+    public String password=readconfig.getPassword();
+
     protected RequestSpecification reqSpec;
 
     public Response createBooking() {
@@ -35,7 +40,7 @@ public class helperMeth {
     @Before
     public void setUp() {
         reqSpec = new RequestSpecBuilder().
-                setBaseUri("https://restful-booker.herokuapp.com").build();
+                setBaseUri(baseURL).build();
     }
 
 
