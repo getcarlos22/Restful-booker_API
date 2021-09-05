@@ -8,7 +8,7 @@ Here are the dependencies used in the project for development & testing perspect
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [RestAssured](http://rest-assured.io/) - Used to get API Response
 * [Gson](https://mvnrepository.com/artifact/com.google.code.gson/gson) - GSON is a Java library that converts Java Objects into JSON and vice versa
-* [TestNG](https://testng.org/) - Testing framework inspired from JUnit and NUnit
+* [Junit](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api) - Testing framework JUnit
 
 
 ##Functionalities
