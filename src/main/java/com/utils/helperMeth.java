@@ -12,8 +12,9 @@ public class helperMeth {
 
     ReadConfig readconfig=new ReadConfig();
     public String baseURL=readconfig.getApplicationURL();
-    public String username=readconfig.getUsername();
-    public String password=readconfig.getPassword();
+
+    private static final LoggerUtils LOGGER = new LoggerUtils(helperMeth.class);
+
 
     protected RequestSpecification reqSpec;
 
@@ -31,16 +32,25 @@ public class helperMeth {
         body.put("bookingdates", bookingdates);
         body.put("additionalneeds", "Breakfast");
 
+        String endPoint = "/booking";
 
         Response res = RestAssured.given(reqSpec).contentType(ContentType.JSON).body(body.toString())
-                .post("/booking");
+                .post(endPoint);
+        LOGGER.info("End point set as: " + endPoint);
+        LOGGER.info("Converted response body to required model");
+
+
+
         return res;
+
+
     }
 
     @Before
     public void setUp() {
         reqSpec = new RequestSpecBuilder().
                 setBaseUri(baseURL).build();
+        LOGGER.info("Calling GET request by passing URI " + baseURL);
     }
 
 
