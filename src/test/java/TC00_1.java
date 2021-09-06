@@ -1,8 +1,11 @@
+import com.tngtech.junit.dataprovider.UseDataProvider;
 import com.utils.LoggerUtils;
 import com.utils.helperMeth;
 import io.restassured.response.Response;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Order;
+import com.utils.XcelUtils;
 
 public class TC00_1 extends helperMeth {
 
@@ -10,7 +13,10 @@ public class TC00_1 extends helperMeth {
     private static final LoggerUtils LOGGER = new LoggerUtils(TC00_1.class);
 
 
+
     @Test
+    @Order(1)
+    @UseDataProvider ("createNewBooking")
     public void createBookingTest() {
 
         Response response = createBooking();

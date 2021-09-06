@@ -1,5 +1,6 @@
 package com.utils;
 
+import com.tngtech.junit.dataprovider.UseDataProvider;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -7,6 +8,8 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 import org.junit.Before;
+import org.junit.Test;
+import org.junit.jupiter.api.Order;
 
 public class helperMeth {
 
@@ -18,6 +21,9 @@ public class helperMeth {
 
     protected RequestSpecification reqSpec;
 
+
+    @Order(1)
+    @UseDataProvider("createNewBooking")
     public Response createBooking() {
 
         JSONObject body = new JSONObject();
